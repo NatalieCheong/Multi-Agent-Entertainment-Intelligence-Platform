@@ -522,7 +522,7 @@ class NetflixMCPApplication:
             
             # Fallback to direct import
             sys.path.append(str(self.project_root))
-            from agents.multi_agents_fastmcp import test_netflix_multi_agents
+            from agents.multi_agents import test_netflix_multi_agents
             
             logger.info("🔍 Running multi-agent system test...")
             result = await asyncio.create_task(asyncio.to_thread(test_netflix_multi_agents))
@@ -539,7 +539,7 @@ class NetflixMCPApplication:
         
         try:
             sys.path.append(str(self.project_root))
-            from guardrail.guardrail_fastmcp import test_guardrail_system
+            from guardrail.guardrail import test_guardrail_system
             
             logger.info("🔍 Running guardrail system test...")
             result = test_guardrail_system()
@@ -742,7 +742,7 @@ class NetflixMCPApplication:
         logger.info("8️⃣ Testing Multi-Agent System...")
         ma_test = False
         try:
-            from agents.multi_agents_fastmcp import run_netflix_multi_agent
+            from agents.multi_agents import run_netflix_multi_agent
             ma_test = True
         except ImportError:
             pass
@@ -754,7 +754,7 @@ class NetflixMCPApplication:
         logger.info("9️⃣ Testing Guardrail System...")
         gr_test = False
         try:
-            from guardrail.guardrail_fastmcp import NetflixGuardrailSystem
+            from guardrail.guardrail import NetflixGuardrailSystem
             gr_test = True
         except ImportError:
             pass
