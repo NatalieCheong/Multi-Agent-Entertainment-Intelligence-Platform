@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Netflix MCP Client - Cursor IDE Version
+Netflix MCP Client - IDE Version
 Professional setup with proper imports and local file paths
 """
 
@@ -48,7 +48,7 @@ except ImportError as e:
     MCP_CLIENT_AVAILABLE = False
 
 class NetflixMCPClient:
-    """Netflix MCP Client with Cursor IDE compatibility"""
+    """Netflix MCP Client with IDE compatibility"""
     
     def __init__(self):
         self.session: Optional[Any] = None
@@ -392,12 +392,12 @@ class NetflixMCPClient:
             logger.info(f"📋 Result: {result}")
 
 class MockMCPSession:
-    """Mock MCP Session for Cursor IDE development"""
+    """Mock MCP Session for IDE development"""
     
     def __init__(self, mcp_server_module, project_root: Path):
         self.server_module = mcp_server_module
         self.project_root = project_root
-        logger.info("🔄 Mock MCP Session initialized for Cursor IDE")
+        logger.info("🔄 Mock MCP Session initialized for IDE")
     
     async def call_tool(self, tool_name: str, arguments: Dict[str, Any]) -> Any:
         """Mock tool call implementation"""
@@ -456,7 +456,7 @@ class MockMCPSession:
                 # Try to use multi-agent system if available
                 try:
                     sys.path.append(str(self.project_root))
-                    from agents.multi_agents_fastmcp import get_content_recommendations
+                    from agents.multi_agents import get_content_recommendations
                     response = get_content_recommendations(preferences, age_rating)
                     return json.loads(response) if isinstance(response, str) else response
                 except:
@@ -477,7 +477,7 @@ class MockMCPSession:
                 # Try to use multi-agent system if available
                 try:
                     sys.path.append(str(self.project_root))
-                    from agents.multi_agents_fastmcp import search_movies_shows
+                    from agents.multi_agents import search_movies_shows
                     response = search_movies_shows(search_query, content_type)
                     return {"status": "success", "results": response}
                 except:
@@ -495,7 +495,7 @@ class MockMCPSession:
                 # Try to use multi-agent system if available
                 try:
                     sys.path.append(str(self.project_root))
-                    from agents.multi_agents_fastmcp import get_viewing_analytics
+                    from agents.multi_agents import get_viewing_analytics
                     response = get_viewing_analytics(metric_type, time_period)
                     return {"status": "success", "analytics": response}
                 except:
