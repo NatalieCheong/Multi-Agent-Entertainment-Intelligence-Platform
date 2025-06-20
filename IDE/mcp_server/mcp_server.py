@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Netflix Business Intelligence MCP Server - Cursor IDE Version
+Netflix Business Intelligence MCP Server - IDE Version
 Professional setup with proper imports and local file paths
 """
 
@@ -36,7 +36,7 @@ except ImportError as e:
 # Import your existing modules - Updated paths for Cursor IDE
 try:
     sys.path.append(str(Path(__file__).parent.parent))
-    from agents.multi_agents_fastmcp import (
+    from agents.multi_agents import (
         run_netflix_multi_agent,
         search_movies_shows,
         get_content_recommendations,
@@ -52,7 +52,7 @@ except ImportError as e:
     MULTI_AGENTS_AVAILABLE = False
 
 try:
-    from guardrail.guardrail_fastmcp import (
+    from guardrail.guardrail import (
         NetflixGuardrailSystem,
         apply_guardrails_to_response,
         simple_content_filter
@@ -522,7 +522,7 @@ async def main():
         logger.error("❌ MCP not available. Please install: uv add mcp")
         return
     
-    logger.info("Starting Netflix Business Intelligence MCP Server (Cursor IDE)")
+    logger.info("Starting Netflix Business Intelligence MCP Server (IDE)")
     logger.info(f"Multi-Agents Available: {MULTI_AGENTS_AVAILABLE}")
     logger.info(f"Guardrails Available: {GUARDRAILS_AVAILABLE}")
     logger.info(f"Dataset Size: {len(netflix_data) if netflix_data is not None else 'Not Available'}")
