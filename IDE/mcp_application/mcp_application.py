@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Netflix MCP Application - Cursor IDE Version
+Netflix MCP Application - IDE Version
 Professional setup with proper imports and local file paths
 """
 
@@ -33,7 +33,7 @@ Path("logs").mkdir(exist_ok=True)
 
 class NetflixMCPApplication:
     """
-    Complete Netflix MCP Application - Cursor IDE Version
+    Complete Netflix MCP Application - IDE Version
     Professional setup with proper dependency management
     """
     
