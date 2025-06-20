@@ -1,13 +1,12 @@
-# Netflix MCP Application - Cursor IDE Environment
+# Netflix MCP Application - IDE Environment
 
-A professional Netflix Multi-Agent Business Intelligence MCP Server optimized for Cursor IDE development with `uv` package manager.
+A professional Netflix Multi-Agent Business Intelligence MCP Server optimized for IDE development with `uv` package manager.
 
-## 🎯 Quick Start for Cursor IDE
+## 🎯 Quick Start for IDE
 
 ### Prerequisites
 - **Python 3.9+**
 - **[uv package manager](https://astral.sh/uv/install.sh)**
-- **Cursor IDE**
 - **OpenAI API key**
 - **Netflix dataset** (`netflix_titles.csv`)
 
@@ -82,7 +81,7 @@ uv run --env-file .env python mcp_server/mcp_server.py
 
 3. **Restart Claude Desktop**
 
-## 🛠️ Development with Cursor IDE
+## 🛠️ Development with IDE
 
 ### Code Formatting
 ```bash
@@ -248,9 +247,9 @@ ENVIRONMENT=development
 DEBUG=true
 ```
 
-### Cursor IDE Configuration
+### IDE Configuration
 
-Add to your Cursor settings (`.vscode/settings.json`):
+Add to your settings (`.vscode/settings.json`):
 ```json
 {
   "python.defaultInterpreterPath": ".venv/bin/python",
@@ -397,4 +396,4 @@ This Netflix MCP Application successfully provides:
 
 ---
 
-**Happy coding with Cursor IDE! 🎉**
+**Happy coding with IDE! 🎉**
