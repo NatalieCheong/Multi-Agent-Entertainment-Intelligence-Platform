@@ -23,7 +23,7 @@ StdioServerParameters = None
 
 try:
     # Try to import MCP client components
-    from mcp.client import ClientSession
+    #from mcp.client import ClientSession
     from mcp.client.stdio import stdio_client
     from mcp.client import StdioServerParameters
     MCP_CLIENT_AVAILABLE = True
