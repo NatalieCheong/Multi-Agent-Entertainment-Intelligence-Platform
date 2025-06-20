@@ -1,0 +1,61 @@
+# Netflix Multi-Agent Business Intelligence MCP Server
+# Enhanced with AI Agents and Content Safety Guardrails
+# Updated with proper MCP dependencies
+
+# Core MCP Framework (Standard MCP Protocol)
+mcp>=1.0.0                         # Model Context Protocol implementation
+pydantic>=2.0.0                    # Data validation for MCP types
+typing-extensions>=4.0.0           # Enhanced type hints
+
+# Alternative MCP Support (if needed)
+# fastmcp>=0.5.0                   # FastMCP framework (alternative implementation)
+
+# AI and Multi-Agent Systems
+openai>=1.0.0                      # OpenAI GPT-4 integration for multi-agents
+anthropic>=0.20.0                  # Anthropic Claude API (optional)
+
+# Data Processing and Analytics
+pandas>=1.5.0                      # Netflix dataset analysis and manipulation
+numpy>=1.21.0                      # Numerical computing for data analysis
+
+# Async and Concurrency Support
+asyncio>=3.4.3                     # Asynchronous programming support
+nest-asyncio>=1.5.0                # Nested async support for Google Colab
+
+# Date/Time and Utilities
+python-dateutil>=2.8.0             # Enhanced date parsing and manipulation
+pathlib>=1.0.0                     # Path manipulation utilities
+
+# JSON and Schema Validation
+jsonschema>=4.0.0                  # JSON schema validation for MCP tools
+json5>=0.9.0                       # Enhanced JSON parsing
+
+# Logging and Monitoring
+loguru>=0.7.0                      # Enhanced logging capabilities
+structlog>=23.0.0                  # Structured logging for better debugging
+
+# Development and Testing
+pytest>=7.0.0                      # Testing framework
+pytest-asyncio>=0.21.0             # Async testing support
+black>=23.0.0                      # Code formatting
+isort>=5.0.0                       # Import sorting
+mypy>=1.0.0                        # Type checking
+
+# Optional: Web Server Support (if needed for deployment)
+fastapi>=0.100.0                   # Fast web framework
+uvicorn>=0.20.0                    # ASGI server
+httpx>=0.24.0                      # HTTP client for API calls
+
+# Optional: Additional AI/ML Libraries
+scikit-learn>=1.3.0                # Machine learning for content analysis
+nltk>=3.8.0                        # Natural language processing
+spacy>=3.6.0                       # Advanced NLP capabilities
+
+# Security and Validation
+cryptography>=41.0.0               # Security utilities
+validators>=0.20.0                 # Data validation utilities
+
+# Configuration Management
+python-dotenv>=1.0.0               # Environment variable management
+pyyaml>=6.0                        # YAML configuration files
+toml>=0.10.0                       # TOML configuration files
