@@ -1,61 +1,66 @@
-Netflix Multi-Agent Business Intelligence MCP Server
+# Netflix Multi-Agent Business Intelligence MCP Server
+
 A comprehensive Netflix Multi-Agent Business Intelligence MCP Server with AI Agents and Content Safety Guardrails for analyzing Netflix TV and Movie Shows data.
+
 🎬 Project Overview
+
 This project leverages the Model Context Protocol (MCP) to create an intelligent Netflix content analysis system using real Netflix dataset from Kaggle. The system employs multi-agent AI architecture with content safety guardrails to provide comprehensive business intelligence insights about Netflix's content strategy, trends, and global distribution.
+
 🚀 Key Features
+
 📊 Business Intelligence Capabilities
 
-Content Analysis: Deep dive into Netflix's 8,000+ titles catalog
-Global Content Distribution: Understanding content availability across different countries
-Trend Analysis: Movie vs TV show patterns over 20-30 years
-Release Strategy Insights: Optimal timing for TV show launches
-Talent Analysis: Actor/director performance across different content types
-Market Intelligence: Netflix's strategic focus on TV shows vs movies
+- Content Analysis: Deep dive into Netflix's 8,000+ titles catalog
+- Global Content Distribution: Understanding content availability across different countries
+- Trend Analysis: Movie vs TV show patterns over 20-30 years
+- Release Strategy Insights: Optimal timing for TV show launches
+- Talent Analysis: Actor/director performance across different content types
+- Market Intelligence: Netflix's strategic focus on TV shows vs movies
 
 🤖 Multi-Agent System
 
-Content Discovery Agent: Find movies and shows based on preferences
-Analytics Specialist Agent: Analyze trends, data, and market insights
-Recommendation Engine Agent: Personalized content suggestions
-Customer Support Agent: Help with Netflix features and policies
-Content Strategy Agent: Business strategy and investment insights
+- Content Discovery Agent: Find movies and shows based on preferences
+- Analytics Specialist Agent: Analyze trends, data, and market insights
+- Recommendation Engine Agent: Personalized content suggestions
+- Customer Support Agent: Help with Netflix features and policies
+- Content Strategy Agent: Business strategy and investment insights
 
 🔒 Content Safety Guardrails
 
-Age-Appropriate Filtering: Family-safe content recommendations
-Quality Assessment: Response accuracy and completeness validation
-Business Logic Validation: Strategic viability and market alignment
-Bias Detection: Cultural, demographic, and regional fairness
-Cultural Sensitivity: Global audience appropriateness
+- Age-Appropriate Filtering: Family-safe content recommendations
+- Quality Assessment: Response accuracy and completeness validation
+- Business Logic Validation: Strategic viability and market alignment
+- Bias Detection: Cultural, demographic, and regional fairness
+- Cultural Sensitivity: Global audience appropriateness
 
 🛠️ Technical Architecture
 
-MCP Protocol Support: Full Model Context Protocol implementation
-Claude Desktop Integration: Seamless AI workflow integration
-Professional Development Setup: Modern Python tooling with uv package manager
-Cross-Platform Compatibility: IDE environment and Google Colab support
+- MCP Protocol Support: Full Model Context Protocol implementation
+- Claude Desktop Integration: Seamless AI workflow integration
+- Professional Development Setup: Modern Python tooling with uv package manager
+- Cross-Platform Compatibility: IDE environment and Google Colab support
 
-📈 Analytics & Insights
+# 📈 Analytics & Insights
 🌍 Global Content Analysis
 
-Content Distribution: Analysis of Netflix content across 190+ countries
-Regional Preferences: Local vs international content consumption patterns
-Cultural Impact: Korean content growth (370% viewership increase)
-Market Penetration: International content now represents 60%+ of viewing hours
+- Content Distribution: Analysis of Netflix content across 190+ countries
+- Regional Preferences: Local vs international content consumption patterns
+- Cultural Impact: Korean content growth (370% viewership increase)
+- Market Penetration: International content now represents 60%+ of viewing hours
 
 📺 Content Evolution Trends
 
-Historical Analysis: 20-30 year movie release patterns
-Format Shift: TV shows vs movies strategic focus analysis
-Release Timing: Optimal launch windows for different content types
-Genre Performance: Drama, Comedy, Thriller, and International content trends
+- Historical Analysis: 20-30 year movie release patterns
+- Format Shift: TV shows vs movies strategic focus analysis
+- Release Timing: Optimal launch windows for different content types
+- Genre Performance: Drama, Comedy, Thriller, and International content trends
 
 🎭 Talent & Production Insights
 
-Director Analysis: Most prolific directors and their content performance
-Actor Performance: Cross-content type talent analysis
-Production Trends: Netflix Originals vs licensed content strategy
-Investment Patterns: $15+ billion annual content investment analysis
+- Director Analysis: Most prolific directors and their content performance
+- Actor Performance: Cross-content type talent analysis
+- Production Trends: Netflix Originals vs licensed content strategy
+- Investment Patterns: $15+ billion annual content investment analysis
 
 🏗️ Project Structure
 ├── 📁 IDE/                          # Professional IDE Environment
