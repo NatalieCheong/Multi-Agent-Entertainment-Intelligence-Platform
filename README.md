@@ -62,17 +62,6 @@ This project leverages the Model Context Protocol (MCP) to create an intelligent
 - Production Trends: Netflix Originals vs licensed content strategy
 - Investment Patterns: $15+ billion annual content investment analysis
 
-🔧 Quick Start
-Prerequisites
-
-Python 3.9+
-
-uv package manager (for IDE environment)
-
-OpenAI API key
-
-Netflix dataset from Kaggle
-
 IDE Environment Setup
 
 1. Clone and setup:   
