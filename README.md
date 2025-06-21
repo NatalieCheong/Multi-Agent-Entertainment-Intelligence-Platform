@@ -62,30 +62,6 @@ This project leverages the Model Context Protocol (MCP) to create an intelligent
 - Production Trends: Netflix Originals vs licensed content strategy
 - Investment Patterns: $15+ billion annual content investment analysis
 
-🏗️ Project Structure
-├── 📁 IDE/                          # Professional IDE Environment
-│   ├── mcp_server/                  # MCP server implementation
-│   ├── mcp_client/                  # MCP client for testing
-│   ├── mcp_application/             # Complete application wrapper
-│   ├── agents/                      # Multi-agent system
-│   ├── guardrail/                   # Content safety guardrails
-│   ├── test/                        # Test files
-│   ├── pyproject.toml               # Project configuration
-│   ├── setup.sh                     # Setup script
-│   └── README.md                    # IDE environment guide
-│
-├── 📁 google_colab_environment/     # Google Colab Compatible
-│   ├── notebook/                    # Jupyter notebook
-│   ├── mcp_server/                  # Colab-optimized server
-│   ├── agents/                      # Multi-agent system
-│   ├── guardrail/                   # Safety guardrails
-│   └── requirements.txt             # Dependencies
-│
-├── 📁 data/                         # Dataset storage
-│   └── netflix_titles.csv           # Netflix dataset
-│
-└── 📁 docs/                         # Documentation
-
 🔧 Quick Start
 Prerequisites
 
