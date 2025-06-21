@@ -1,7 +1,0 @@
-# run setup script
-chmod +x setup.sh
-
-./setup.sh
-
-# test installation
-uv run pytest test/
