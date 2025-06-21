@@ -115,20 +115,20 @@ Claude Desktop Integration
 Run Comprehensive Tests
 
 # IDE Environment
-uv run pytest
+- uv run pytest
 
 # Test specific components
-uv run python -c "from agents.multi_agents import test_netflix_multi_agents; test_netflix_multi_agents()"
-uv run python -c "from guardrail.guardrail import test_guardrail_system; test_guardrail_system()"
+- uv run python -c "from agents.multi_agents import test_netflix_multi_agents; test_netflix_multi_agents()"
+- uv run python -c "from guardrail.guardrail import test_guardrail_system; test_guardrail_system()"
 
 Google Colab Testing
 
 # In Colab notebook
-from multi_agents_fastmcp import test_netflix_multi_agents
-from guardrail_fastmcp import test_guardrail_system
+- from multi_agents_fastmcp import test_netflix_multi_agents
+- from guardrail_fastmcp import test_guardrail_system
 
-test_netflix_multi_agents()
-test_guardrail_system()
+- test_netflix_multi_agents()
+- test_guardrail_system()
 
 📈 Performance Metrics
 
@@ -142,16 +142,16 @@ test_guardrail_system()
 🔒 Safety & Compliance
 Content Safety Features
 
-Age-Appropriate Filtering: Automatic filtering for family content
-Cultural Sensitivity: Global audience consideration
-Bias Detection: Demographic and regional fairness
-Quality Assurance: Response accuracy validation
+- Age-Appropriate Filtering: Automatic filtering for family content
+- Cultural Sensitivity: Global audience consideration
+- Bias Detection: Demographic and regional fairness
+- Quality Assurance: Response accuracy validation
 
 Business Compliance
 
-Strategic Alignment: Netflix business model compatibility
-Market Viability: Commercial feasibility assessment
-Competitive Analysis: Market positioning validation
+- Strategic Alignment: Netflix business model compatibility
+- Market Viability: Commercial feasibility assessment
+- Competitive Analysis: Market positioning validation
 
 Dataset Resources: https://www.kaggle.com/datasets/anandshaw2001/netflix-movies-and-tv-shows
 
