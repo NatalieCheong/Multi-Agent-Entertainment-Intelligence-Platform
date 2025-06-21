@@ -100,49 +100,9 @@ Google Colab Setup
 2. Install dependencies:
    - !pip install mcp openai pandas numpy nest-asyncio
 
-Claude Desktop Integration: 
-
 Claude Desktop Integration
 
-Add to Claude Desktop configuration:
-
-json{
-  "mcpServers": {
-    "netflix-business-intelligence": {
-      "command": "uv",
-      "args": ["run", "python", "mcp_server/mcp_server.py"],
-      "cwd": "/absolute/path/to/your/project",
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key_here",
-        "NETFLIX_DATASET_PATH": "data/netflix_titles.csv"
-      }
-    }
-  }
-}
-
-🎯 Available MCP Tools
-1. netflix_business_query
-Business intelligence queries with real Netflix data:
-
-{
-  "natural_language_query": "What percentage of Netflix content is Korean?"
-}
-
-2. netflix_content_recommendations
-AI-powered content recommendations:
-
-{
-  "user_preferences": "action movies for teenagers",
-  "age_rating": "teen"
-}
-
-3. netflix_analytics_insights
-Analytics and trend insights:
-
-{
-  "metric_type": "engagement",
-  "time_period": "monthly"
-}
+- Add to Claude Desktop configuration
 
 📊 Sample Business Intelligence Queries
   Content Distribution Analysis
