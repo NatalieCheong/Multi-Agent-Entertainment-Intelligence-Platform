@@ -102,8 +102,11 @@ Google Colab Setup
 
 Claude Desktop Integration: 
 
+Claude Desktop Integration
+
 Add to Claude Desktop configuration:
-{
+
+json{
   "mcpServers": {
     "netflix-business-intelligence": {
       "command": "uv",
@@ -116,8 +119,6 @@ Add to Claude Desktop configuration:
     }
   }
 }
-
-3. Restart Claude Desktop
 
 🎯 Available MCP Tools
 1. netflix_business_query
