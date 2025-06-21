@@ -66,39 +66,39 @@ This project leverages the Model Context Protocol (MCP) to create an intelligent
 Prerequisites
 
 Python 3.9+
+
 uv package manager (for IDE environment)
+
 OpenAI API key
+
 Netflix dataset from Kaggle
 
 IDE Environment Setup
 
 1. Clone and setup:   
-   git clone <your-repo-url>
-   cd AI-Agents-with-MCP-Server-for-Netflix-TV-and-Movie-Shows/IDE
-   chmod +x setup.sh
-   ./setup.sh
+   - git clone <your-repo-url>
+   - cd AI-Agents-with-MCP-Server-for-Netflix-TV-and-Movie-Shows/IDE
+   - chmod +x setup.sh
+   - ./setup.sh
 
 2. Configure environment:
-   # Update .env with your API keys
-   nano .env
+   - nano .env
 
 3. Add Netflix dataset:
-   # Download from Kaggle and place in data directory
-   cp path/to/netflix_titles.csv data/
+   - cp path/to/netflix_titles.csv data/
    
 4. Start the MCP server:
-
-   uv run python mcp_server/mcp_server.py
+   - uv run python mcp_server/mcp_server.py
 
 Google Colab Setup
 
 1. Upload files to Colab:
 
-Upload all files from google_colab_environment/ to /content/
-Mount Google Drive for dataset storage
+- Upload all files from google_colab_environment/ to /content/
+- Mount Google Drive for dataset storage
 
 2. Install dependencies:
-   !pip install mcp openai pandas numpy nest-asyncio
+   - !pip install mcp openai pandas numpy nest-asyncio
 
 Claude Desktop Integration: 
 
