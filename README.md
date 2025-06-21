@@ -140,6 +140,7 @@ Google Colab Testing
 ✅ Claude Desktop integration for seamless AI workflows
 
 🔒 Safety & Compliance
+
 Content Safety Features
 
 - Age-Appropriate Filtering: Automatic filtering for family content
