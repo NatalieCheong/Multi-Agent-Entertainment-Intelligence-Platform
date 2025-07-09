@@ -1,4 +1,4 @@
-# 🎬 Multi-Agent MCP Platform
+# 🎬 Multi-Agent Entertainment Intelligence Platform
 
 **A Professional Multi-Agent Business Intelligence MCP Server with AI Orchestration and Content Safety Guardrails**
 
@@ -9,19 +9,19 @@
 
 ## 🌟 Overview
 
-This project represents the next generation of AI-powered content analysis platforms, featuring a sophisticated **Multi-Agent Architecture** integrated with the **Model Context Protocol (MCP)** for seamless AI service orchestration. Built specifically for entertainment industry analysis, it demonstrates advanced concepts in distributed AI systems and protocol standardization.
+This project represents the next generation of AI-powered entertainment intelligence platforms, featuring a sophisticated **Multi-Agent Architecture** integrated with the **Model Context Protocol (MCP)** for seamless AI service orchestration. Built for comprehensive entertainment industry analysis, it demonstrates advanced concepts in distributed AI systems and protocol standardization.
 
 ### 🎯 Key Innovation Areas
 
-- **Agent Architecture & Orchestration**: Multi-agent system with specialized Netflix domain experts
+- **Agent Architecture & Orchestration**: Multi-agent system with specialized entertainment domain experts
 - **MCP Ecosystem Building**: Standards-compliant protocol implementation for AI service integration
 - **Content Safety Guardrails**: Advanced AI safety and quality assurance systems
-- **Business Intelligence**: Real-world entertainment industry data analysis capabilities
+- **Entertainment Intelligence**: Real-world industry data analysis with multiple data sources
 
 ## 🚀 Features
 
 ### 🤖 Multi-Agent System
-- **5 Specialized AI Agents** for different Netflix business domains
+- **5 Specialized AI Agents** for different entertainment business domains
 - **Intelligent Agent Orchestration** with dynamic workflow routing
 - **Context-Aware Communication** between agents using MCP protocol
 - **Scalable Agent Architecture** designed for enterprise deployment
@@ -38,8 +38,8 @@ This project represents the next generation of AI-powered content analysis platf
 - **Business Logic Validation** for strategic recommendations
 - **Bias Detection** and cultural sensitivity assessment
 
-### 📊 Business Intelligence
-- **Real Netflix Dataset Analysis** with 8,000+ titles
+### 📊 Entertainment Intelligence
+- **Multi-Source Data Analysis** (Netflix, TMDB, and custom datasets)
 - **International Content Trends** and market insights
 - **Genre Performance Analytics** and recommendation systems
 - **Competitive Intelligence** and market positioning analysis
@@ -48,7 +48,7 @@ This project represents the next generation of AI-powered content analysis platf
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                Netflix MCP Platform Architecture            │
+│          Entertainment Intelligence Platform                │
 ├─────────────────────────────────────────────────────────────┤
 │  Claude Desktop  │  External Clients  │  API Integrations   │
 ├─────────────────────────────────────────────────────────────┤
@@ -61,7 +61,7 @@ This project represents the next generation of AI-powered content analysis platf
 ├─────────────────────────────────────────────────────────────┤
 │    Safety Guardrails    │    Business Logic Validation     │
 ├─────────────────────────────────────────────────────────────┤
-│  Netflix Dataset  │  TMDB Integration  │  Sample Data      │
+│  Netflix Dataset  │  TMDB Integration  │  Custom Sources   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -99,8 +99,8 @@ This project represents the next generation of AI-powered content analysis platf
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/NatalieCheong/Multi-Agents-with-MCP-Server-Analyze-Netflix-TV-and-Movie-Shows.git
-   cd Multi-Agents-with-MCP-Server-Analyze-Netflix-TV-and-Movie-Shows/IDE
+   git clone https://github.com/NatalieCheong/Multi-Agent-Entertainment-Intelligence-Platform.git
+   cd Multi-Agent-Entertainment-Intelligence-Platform
    ```
 
 2. **Run Setup Script**
@@ -149,7 +149,7 @@ This project represents the next generation of AI-powered content analysis platf
 uv run python mcp_server/mcp_server.py
 
 # Method 2: Using installed script
-uv run netflix-mcp-server
+uv run entertainment-intelligence-server
 
 # Method 3: With specific environment
 uv run --env-file .env python mcp_server/mcp_server.py
@@ -161,13 +161,14 @@ uv run --env-file .env python mcp_server/mcp_server.py
    ```json
    {
      "mcpServers": {
-       "netflix-business-intelligence": {
+       "entertainment-intelligence": {
          "command": "uv",
          "args": ["run", "python", "mcp_server/mcp_server.py"],
-         "cwd": "/absolute/path/to/your/project",
+         "cwd": "/absolute/path/to/Multi-Agent-Entertainment-Intelligence-Platform",
          "env": {
            "OPENAI_API_KEY": "your_openai_api_key_here",
-           "NETFLIX_DATASET_PATH": "data/netflix_titles.csv"
+           "NETFLIX_DATASET_PATH": "data/netflix_titles.csv",
+           "TMDB_API_KEY": "your_tmdb_api_key_here"
          }
        }
      }
@@ -183,12 +184,13 @@ uv run --env-file .env python mcp_server/mcp_server.py
 
 ## 🎯 Usage Examples
 
-### Business Intelligence Queries
+### Entertainment Intelligence Queries
 ```
 What percentage of Netflix content is Korean?
 Show me the trend of international vs US content
 What are the most popular genres globally?
 Analyze thriller content performance in Asian markets
+Compare Netflix and TMDB data for accuracy
 ```
 
 ### Multi-Agent Interactions
@@ -270,43 +272,50 @@ uv run python agents/multi_agents.py
 
 # Test guardrail system
 uv run python guardrail/guardrail.py
+
+# Run comprehensive demo
+uv run python demo/demo_script.py --full
+
+# Run performance benchmarks
+uv run python benchmarks/performance_test.py --full
 ```
 
 ## 📊 Available MCP Tools
 
 | Tool Name | Description | Use Case |
 |-----------|-------------|----------|
-| `netflix_business_query` | Advanced BI queries with multi-agent analysis | Market research, trend analysis |
-| `netflix_test_query` | Simple connectivity and functionality test | Development and debugging |
-| `netflix_dataset_info` | Comprehensive dataset statistics | Data validation and exploration |
-| `netflix_content_recommendations` | AI-powered content suggestions | Personalization and user engagement |
-| `netflix_search_content` | Multi-agent content discovery | Content search and filtering |
-| `netflix_analytics_insights` | Advanced analytics and metrics | Performance monitoring and insights |
+| `entertainment_business_query` | Advanced BI queries with multi-agent analysis | Market research, trend analysis |
+| `entertainment_test_query` | Simple connectivity and functionality test | Development and debugging |
+| `entertainment_dataset_info` | Comprehensive dataset statistics | Data validation and exploration |
+| `entertainment_content_recommendations` | AI-powered content suggestions | Personalization and user engagement |
+| `entertainment_search_content` | Multi-agent content discovery | Content search and filtering |
+| `entertainment_analytics_insights` | Advanced analytics and metrics | Performance monitoring and insights |
+| `entertainment_data_source_switch` | Switch between data sources | TMDB/Netflix/Sample data management |
 
 ## 🤖 AI Agents Specifications
 
 ### 1. Content Discovery Agent
-- **Purpose**: Movie and TV show search and discovery
-- **Capabilities**: Genre filtering, cast/director search, content metadata analysis
+- **Purpose**: Movie and TV show search and discovery across multiple sources
+- **Capabilities**: Genre filtering, cast/director search, cross-platform content metadata analysis
 - **Use Cases**: Content recommendation, catalog exploration, user query resolution
 
 ### 2. Analytics Specialist Agent
-- **Purpose**: Data analysis and business intelligence
+- **Purpose**: Data analysis and business intelligence across entertainment platforms
 - **Capabilities**: Trend analysis, performance metrics, competitive benchmarking
 - **Use Cases**: Market research, strategy planning, ROI analysis
 
 ### 3. Recommendation Engine Agent
-- **Purpose**: Personalized content suggestions
+- **Purpose**: Personalized content suggestions using multiple data sources
 - **Capabilities**: User preference modeling, collaborative filtering, content matching
 - **Use Cases**: User engagement, personalization, retention optimization
 
 ### 4. Customer Support Agent
-- **Purpose**: User assistance and platform guidance
+- **Purpose**: User assistance and platform guidance for entertainment services
 - **Capabilities**: FAQ handling, troubleshooting, feature explanation
 - **Use Cases**: Customer service, user onboarding, issue resolution
 
 ### 5. Content Strategy Agent
-- **Purpose**: Business strategy and content planning
+- **Purpose**: Business strategy and content planning for entertainment industry
 - **Capabilities**: Market analysis, investment recommendations, strategic insights
 - **Use Cases**: Content acquisition, market expansion, competitive positioning
 
@@ -327,7 +336,8 @@ uv run python guardrail/guardrail.py
 ## 📁 Project Structure
 
 ```
-├── 📁 mcp_server/           # MCP server implementation
+Multi-Agent-Entertainment-Intelligence-Platform/
+├── 📁 mcp_server/           # Entertainment MCP Server implementation
 │   ├── mcp_server.py        # Main server with enhanced BI logic
 │   └── __init__.py
 ├── 📁 mcp_client/           # MCP client for testing and development
@@ -336,19 +346,37 @@ uv run python guardrail/guardrail.py
 ├── 📁 mcp_application/      # Complete application wrapper
 │   ├── mcp_application.py   # Application management and orchestration
 │   └── __init__.py
-├── 📁 agents/               # Multi-agent system implementation
+├── 📁 agents/               # Entertainment AI Agents system
 │   ├── multi_agents.py      # Agent definitions and orchestration logic
 │   └── __init__.py
-├── 📁 guardrail/            # Content safety and quality guardrails
+├── 📁 guardrail/            # Content Safety for Entertainment
 │   ├── guardrail.py         # Guardrail system with AI judges
 │   └── __init__.py
+├── 📁 data_sources/         # Netflix, TMDB, and other data sources
+│   ├── tmdb_integration.py  # TMDB API integration
+│   └── __init__.py
+├── 📁 demo/                 # Demonstration scripts and examples
+│   ├── demo_script.py       # Comprehensive platform demonstration
+│   └── __init__.py
+├── 📁 benchmarks/           # Performance testing and optimization
+│   ├── performance_test.py  # Performance benchmarking suite
+│   └── __init__.py
+├── 📁 deployment/           # Docker and deployment configurations
+│   ├── docker-compose.yml   # Production deployment setup
+│   ├── Dockerfile          # Container configuration
+│   └── kubernetes/         # K8s deployment manifests
 ├── 📁 test/                 # Comprehensive test suite
 │   ├── test_basic.py        # Basic functionality tests
+│   ├── test_agents.py       # Multi-agent system tests
+│   ├── test_guardrails.py   # Safety system tests
 │   └── __init__.py
 ├── 📁 logs/                 # Application logs and monitoring
 ├── 📁 data/                 # Dataset storage (Netflix CSV/TMDB)
-├── 📁 config/               # Configuration files
+├── 📁 config/               # Configuration files and settings
 ├── 📁 docs/                 # Documentation and guides
+├── 📁 scripts/              # Utility and helper scripts
+│   ├── health_check.py      # System health verification
+│   └── performance_monitor.py # Performance monitoring
 ├── pyproject.toml           # Modern Python project configuration
 ├── uv.lock                  # Dependency lock file for reproducibility
 ├── .env                     # Environment variables (API keys, config)
@@ -368,11 +396,11 @@ TMDB_API_KEY=your_tmdb_api_key_here
 
 # Data Source Configuration
 NETFLIX_DATASET_PATH=data/netflix_titles.csv
-PREFERRED_DATA_SOURCE=netflix_csv  # netflix_csv, tmdb_api, sample_data
+PREFERRED_DATA_SOURCE=auto  # auto, netflix_csv, tmdb_api, sample_data
 
 # Logging Configuration
 LOG_LEVEL=INFO  # DEBUG, INFO, WARNING, ERROR
-LOG_FILE=logs/netflix_mcp_server.log
+LOG_FILE=logs/entertainment_intelligence_server.log
 
 # Feature Flags
 ENABLE_MULTI_AGENTS=true
@@ -401,6 +429,12 @@ AGENT_CONFIGURATION = {
     "retry_attempts": 3,
     "context_window": 4000
 }
+
+DATA_SOURCE_CONFIGURATION = {
+    "tmdb_rate_limit": 40,  # requests per 10 seconds
+    "netflix_cache_ttl": 3600,  # 1 hour
+    "sample_data_size": 200  # number of sample records
+}
 ```
 
 ## 🚀 Deployment Options
@@ -427,24 +461,15 @@ pm2 start ecosystem.config.js
 ```
 
 ### Docker Deployment
-```dockerfile
-FROM python:3.11-slim
+```bash
+# Build and run with Docker Compose
+docker-compose up -d
 
-# Install uv
-RUN pip install uv
+# Scale for production
+docker-compose --profile production up -d
 
-# Copy project files
-COPY . /app
-WORKDIR /app
-
-# Install dependencies
-RUN uv sync --no-dev
-
-# Expose port
-EXPOSE 8000
-
-# Run server
-CMD ["uv", "run", "python", "mcp_server/mcp_server.py"]
+# With monitoring stack
+docker-compose --profile production --profile monitoring up -d
 ```
 
 ## 🛟 Troubleshooting
@@ -460,7 +485,7 @@ uv run python mcp_server/mcp_server.py
 cat ~/.config/Claude/claude_desktop_config.json
 
 # Check logs for errors
-tail -f logs/netflix_mcp_server.log
+tail -f logs/entertainment_intelligence_server.log
 ```
 
 **2. Dataset Loading Problems**
@@ -473,6 +498,9 @@ echo $TMDB_API_KEY
 
 # Test with sample data
 PREFERRED_DATA_SOURCE=sample_data uv run python mcp_server/mcp_server.py
+
+# Switch data sources
+uv run python -c "from mcp_server.mcp_server import load_netflix_dataset; print(len(load_netflix_dataset()))"
 ```
 
 **3. Import Errors**
@@ -495,6 +523,9 @@ DEBUG=true LOG_LEVEL=DEBUG uv run python mcp_server/mcp_server.py
 # Check system resources
 htop
 
+# Run performance benchmarks
+uv run python benchmarks/performance_test.py --full
+
 # Monitor agent performance
 uv run python -m agents.multi_agents --benchmark
 ```
@@ -514,7 +545,9 @@ OPTIMIZATION_SETTINGS = {
     "cache_size": 1000,
     "batch_processing": True,
     "async_operations": True,
-    "memory_limit": "8GB"
+    "memory_limit": "8GB",
+    "tmdb_concurrent_requests": 5,
+    "data_processing_chunk_size": 1000
 }
 ```
 
@@ -527,23 +560,26 @@ uv run python scripts/performance_monitor.py
 uv run python scripts/health_check.py
 
 # Generate performance report
-uv run python scripts/performance_report.py
+uv run python benchmarks/performance_test.py --full
+
+# Comprehensive demo with metrics
+uv run python demo/demo_script.py --full
 ```
 
 ## 🤝 Contributing
 
-We welcome contributions to the Netflix MCP Platform! This project represents cutting-edge work in Multi-Agent systems and MCP protocol implementation.
+We welcome contributions to the Multi-Agent Entertainment Intelligence Platform! This project represents cutting-edge work in Multi-Agent systems and MCP protocol implementation.
 
 ### Development Process
 
 1. **Fork the Repository**
    ```bash
-   git fork https://github.com/NatalieCheong/Multi-Agents-with-MCP-Server-Analyze-Netflix-TV-and-Movie-Shows.git
+   git fork https://github.com/NatalieCheong/Multi-Agent-Entertainment-Intelligence-Platform.git
    ```
 
 2. **Create Feature Branch**
    ```bash
-   git checkout -b feature/amazing-multi-agent-enhancement
+   git checkout -b feature/amazing-entertainment-enhancement
    ```
 
 3. **Install Development Dependencies**
@@ -571,12 +607,15 @@ We welcome contributions to the Netflix MCP Platform! This project represents cu
    
    # Test multi-agent integration
    uv run python agents/multi_agents.py --test
+   
+   # Run comprehensive demo
+   uv run python demo/demo_script.py --full
    ```
 
 6. **Submit Pull Request**
    ```bash
-   git commit -m 'Add amazing multi-agent enhancement'
-   git push origin feature/amazing-multi-agent-enhancement
+   git commit -m 'Add amazing entertainment intelligence enhancement'
+   git push origin feature/amazing-entertainment-enhancement
    ```
 
 ### Contribution Guidelines
@@ -590,10 +629,11 @@ We welcome contributions to the Netflix MCP Platform! This project represents cu
 ### Areas for Contribution
 
 - **New Agent Types**: Specialized agents for different entertainment domains
+- **Data Source Integrations**: Support for additional APIs and datasets
 - **MCP Extensions**: Enhanced protocol features and capabilities
 - **Guardrail Enhancements**: Advanced safety and quality measures
 - **Performance Optimization**: Scalability and efficiency improvements
-- **Integration Connectors**: Support for additional data sources and platforms
+- **Industry-Specific Features**: Gaming, music, books, podcasts analytics
 
 ## 📄 License
 
@@ -602,7 +642,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ```
 MIT License
 
-Copyright (c) 2024 Netflix MCP Platform Contributors
+Copyright (c) 2024 Multi-Agent Entertainment Intelligence Platform Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -625,13 +665,14 @@ SOFTWARE.
 
 ## 🌟 Acknowledgments
 
-This project represents innovative work in the intersection of Multi-Agent AI systems and protocol standardization. Special recognition to:
+This project represents innovative work in the intersection of Multi-Agent AI systems and entertainment intelligence. Special recognition to:
 
 - **Anthropic** for the Claude AI platform and MCP protocol development
 - **OpenAI** for GPT-4 and advanced language model capabilities
 - **The Open Source Community** for foundational tools and libraries
 - **Netflix** for inspiring the entertainment industry use case
-- **TMDB** for providing alternative data sources and APIs
+- **TMDB** for providing comprehensive entertainment data APIs
+- **Entertainment Industry** for real-world use case validation
 
 ## 🔗 Related Projects
 
@@ -649,6 +690,7 @@ This project represents innovative work in the intersection of Multi-Agent AI sy
 - [Kaggle Netflix Dataset](https://www.kaggle.com/datasets/shivamb/netflix-shows) - Netflix content analysis datasets
 - [TMDB API](https://www.themoviedb.org/documentation/api) - The Movie Database API
 - [OMDb API](https://www.omdbapi.com/) - Open Movie Database API
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api) - Music streaming analytics
 
 ## 📞 Support & Community
 
@@ -659,24 +701,36 @@ This project represents innovative work in the intersection of Multi-Agent AI sy
 - **Examples**: Real-world usage patterns and best practices
 
 ### Community Resources
-- **Technical Blog**: Deep dives into multi-agent architecture
+- **Technical Blog**: Deep dives into multi-agent architecture for entertainment
 - **Video Tutorials**: Step-by-step implementation guides
-- **Conference Talks**: Presentations on MCP and multi-agent systems
+- **Conference Talks**: Presentations on MCP and multi-agent systems in entertainment
 - **Research Papers**: Academic contributions and findings
 
 ### Professional Services
 For enterprise deployment, custom agent development, or strategic consulting:
 - **Architecture Consulting**: Multi-agent system design and implementation
-- **Protocol Integration**: Custom MCP server development
+- **Protocol Integration**: Custom MCP server development for entertainment platforms
 - **Safety Compliance**: Guardrail system implementation and audit
-- **Performance Optimization**: Scale and efficiency improvements
+- **Performance Optimization**: Scale and efficiency improvements for large datasets
+- **Industry Integration**: Custom data source integrations and specialized agents
 
 ---
 
-**🎬 Ready to revolutionize entertainment analytics with Multi-Agent AI?**
+**🎬 Ready to revolutionize entertainment intelligence with Multi-Agent AI?**
 
-**🚀 Get started today and build the future of intelligent content platforms!**
+**🚀 Get started today and build the future of intelligent entertainment platforms!**
 
 ---
 
-*This project demonstrates cutting-edge concepts in Multi-Agent systems, MCP protocol implementation, and AI safety. It serves as both a functional entertainment analytics platform and a reference architecture for enterprise AI applications.*
+*This project demonstrates cutting-edge concepts in Multi-Agent systems, MCP protocol implementation, and AI safety applied to the entertainment industry. It serves as both a functional entertainment intelligence platform and a reference architecture for enterprise AI applications in media and entertainment.*
+
+
+
+
+
+
+
+
+
+
+
