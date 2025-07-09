@@ -1,4 +1,4 @@
-# 🎬 Netflix Multi-Agent MCP Platform
+# 🎬 Multi-Agent MCP Platform
 
 **A Professional Multi-Agent Business Intelligence MCP Server with AI Orchestration and Content Safety Guardrails**
 
