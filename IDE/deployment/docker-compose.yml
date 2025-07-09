@@ -1,1 +1,339 @@
+version: '3.8'
 
+services:
+  # Netflix MCP Server - Main Application
+  netflix-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - ENVIRONMENT=production
+    container_name: netflix-mcp-server
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+      - "8001:8001"  # Health check port
+    environment:
+      # API Configuration
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - TMDB_API_KEY=${TMDB_API_KEY}
+      
+      # Application Configuration
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      
+      # Data Source Configuration
+      - NETFLIX_DATASET_PATH=/app/data/netflix_titles.csv
+      - PREFERRED_DATA_SOURCE=netflix_csv
+      
+      # Feature Flags
+      - ENABLE_MULTI_AGENTS=true
+      - ENABLE_GUARDRAILS=true
+      - ENABLE_ANALYTICS=true
+      
+      # Performance Configuration
+      - MAX_CONCURRENT_AGENTS=5
+      - RESPONSE_TIMEOUT=30
+      - CACHE_SIZE=1000
+      
+      # Database Configuration (if using external DB)
+      - DATABASE_URL=${DATABASE_URL:-}
+      - REDIS_URL=${REDIS_URL:-}
+      
+      # Security Configuration
+      - SECRET_KEY=${SECRET_KEY:-netflix-mcp-secret-key}
+      - API_RATE_LIMIT=100
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+    
+    volumes:
+      # Data persistence
+      - ./data:/app/data:ro
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+      
+      # Optional: Custom models or configurations
+      - ./models:/app/models:ro
+      - ./custom_agents:/app/custom_agents:ro
+    
+    networks:
+      - netflix-mcp-network
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    depends_on:
+      - redis
+      - postgres
+    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.netflix-mcp.rule=Host(`netflix-mcp.localhost`)"
+      - "traefik.http.services.netflix-mcp.loadbalancer.server.port=8000"
+
+  # Redis - Caching and Session Storage
+  redis:
+    image: redis:7-alpine
+    container_name: netflix-mcp-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+      - ./deployment/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - netflix-mcp-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # PostgreSQL - Data Storage (Optional)
+  postgres:
+    image: postgres:15-alpine
+    container_name: netflix-mcp-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB:-netflix_mcp}
+      - POSTGRES_USER=${POSTGRES_USER:-netflix_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secure_password}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./deployment/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - netflix-mcp-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-netflix_user} -d ${POSTGRES_DB:-netflix_mcp}"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # NGINX - Reverse Proxy and Load Balancer
+  nginx:
+    image: nginx:alpine
+    container_name: netflix-mcp-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deployment/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deployment/ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - netflix-mcp-network
+    depends_on:
+      - netflix-mcp-server
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Monitoring - Prometheus (Optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: netflix-mcp-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    networks:
+      - netflix-mcp-network
+    profiles:
+      - monitoring
+
+  # Grafana - Monitoring Dashboard (Optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: netflix-mcp-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./deployment/grafana:/etc/grafana/provisioning:ro
+    networks:
+      - netflix-mcp-network
+    depends_on:
+      - prometheus
+    profiles:
+      - monitoring
+
+  # ElasticSearch - Log Storage (Optional)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: netflix-mcp-elasticsearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - netflix-mcp-network
+    profiles:
+      - logging
+
+  # Kibana - Log Visualization (Optional)
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: netflix-mcp-kibana
+    restart: unless-stopped
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - netflix-mcp-network
+    depends_on:
+      - elasticsearch
+    profiles:
+      - logging
+
+  # Filebeat - Log Shipping (Optional)
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.11.0
+    container_name: netflix-mcp-filebeat
+    restart: unless-stopped
+    user: root
+    volumes:
+      - ./deployment/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./logs:/app/logs:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - netflix-mcp-network
+    depends_on:
+      - elasticsearch
+    profiles:
+      - logging
+
+  # Development Tools Container (Optional)
+  dev-tools:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: netflix-mcp-dev-tools
+    restart: "no"
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - netflix-mcp-network
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TMDB_API_KEY=${TMDB_API_KEY}
+    profiles:
+      - development
+    command: /bin/bash
+
+# Network Configuration
+networks:
+  netflix-mcp-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Volume Configuration
+volumes:
+  # Application Data
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  
+  # Monitoring Data
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  
+  # Logging Data
+  elasticsearch_data:
+    driver: local
+  nginx_logs:
+    driver: local
+
+# Configuration for different environments
+# Usage:
+#   Development: docker-compose up netflix-mcp-server redis postgres
+#   Production:  docker-compose --profile production up -d
+#   Monitoring:  docker-compose --profile monitoring up -d
+#   Logging:     docker-compose --profile logging up -d
+#   Full Stack:  docker-compose --profile production --profile monitoring --profile logging up -d
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+# Apply logging configuration to all services
+x-common-variables: &common-variables
+  TZ: UTC
+  PYTHONUNBUFFERED: 1
+  PYTHONIOENCODING: utf-8
+
+# Common restart policy
+x-restart-policy: &restart-policy
+  restart_policy:
+    condition: on-failure
+    delay: 5s
+    max_attempts: 3
+    window: 120s
+
+# Override configurations for different environments
+# Development Environment
+x-development: &development-overrides
+  <<: *restart-policy
+  logging: *default-logging
+  environment:
+    <<: *common-variables
+    ENVIRONMENT: development
+    DEBUG: true
+    LOG_LEVEL: DEBUG
+
+# Production Environment  
+x-production: &production-overrides
+  <<: *restart-policy
+  logging: *default-logging
+  environment:
+    <<: *common-variables
+    ENVIRONMENT: production
+    DEBUG: false
+    LOG_LEVEL: INFO
+  deploy:
+    resources:
+      limits:
+        cpus: '2.0'
+        memory: 4G
+      reservations:
+        cpus: '0.5'
+        memory: 1G
