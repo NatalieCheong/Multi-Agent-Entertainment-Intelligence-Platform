@@ -578,9 +578,8 @@ Welcome contributions to the Multi-Agent Entertainment Intelligence Platform! Th
 
 1. **Fork the Repository**
    ```bash
-   # Fork this repository to your GitHub account
-   # Then clone your fork locally
-   git clone https://github.com/YOUR_USERNAME/Multi-Agent-Entertainment-Intelligence-Platform.git
+   # Fork this repository to your GitHub account   
+   git clone https://github.com/NatalieCheong/Multi-Agent-Entertainment-Intelligence-Platform.git
    cd Multi-Agent-Entertainment-Intelligence-Platform
    ```
 
