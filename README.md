@@ -570,11 +570,18 @@ uv run python demo/demo_script.py --full
 
 Welcome contributions to the Multi-Agent Entertainment Intelligence Platform! This project represents cutting-edge work in Multi-Agent systems and MCP protocol implementation.
 
+### Before Contributing
+
+**Please review the [Disclaimer](#️-disclaimer) section to ensure your contributions align with the educational and research purpose of this project.**
+
 ### Development Process
 
 1. **Fork the Repository**
    ```bash
-   git fork https://github.com/NatalieCheong/Multi-Agent-Entertainment-Intelligence-Platform.git
+   # Fork this repository to your GitHub account
+   # Then clone your fork locally
+   git clone https://github.com/YOUR_USERNAME/Multi-Agent-Entertainment-Intelligence-Platform.git
+   cd Multi-Agent-Entertainment-Intelligence-Platform
    ```
 
 2. **Create Feature Branch**
@@ -593,6 +600,7 @@ Welcome contributions to the Multi-Agent Entertainment Intelligence Platform! Th
    - Add comprehensive tests for new functionality
    - Update documentation as needed
    - Ensure all agents work together harmoniously
+   - **Ensure contributions maintain educational/research focus**
 
 5. **Run Quality Checks**
    ```bash
@@ -616,28 +624,51 @@ Welcome contributions to the Multi-Agent Entertainment Intelligence Platform! Th
    ```bash
    git commit -m 'Add amazing entertainment intelligence enhancement'
    git push origin feature/amazing-entertainment-enhancement
+   # Then create a Pull Request from your fork
    ```
 
 ### Contribution Guidelines
 
+- **Educational Focus**: Contributions should align with educational and research purposes
 - **Multi-Agent Focus**: Contributions should align with the multi-agent architecture vision
 - **MCP Compliance**: Ensure all changes maintain MCP protocol compatibility
 - **Safety First**: All new features must include appropriate guardrails
 - **Documentation**: Update docs for any new functionality
 - **Testing**: Maintain >90% test coverage for critical components
+- **Legal Compliance**: Ensure contributions don't violate third-party terms of service
 
 ### Areas for Contribution
 
 - **New Agent Types**: Specialized agents for different entertainment domains
-- **Data Source Integrations**: Support for additional APIs and datasets
+- **Data Source Integrations**: Support for additional APIs and datasets (with proper licensing)
 - **MCP Extensions**: Enhanced protocol features and capabilities
 - **Guardrail Enhancements**: Advanced safety and quality measures
 - **Performance Optimization**: Scalability and efficiency improvements
-- **Industry-Specific Features**: Gaming, music, books, podcasts analytics
+- **Educational Content**: Tutorials, examples, and learning materials
+- **Research Applications**: Academic use cases and analysis methodologies
 
+### Code of Conduct
+
+- Maintain the educational and research focus of the project
+- Respect all third-party terms of service and licensing requirements
+- Provide clear documentation for educational use
+- Be respectful in discussions and code reviews
+- Focus on learning and knowledge sharing
+
+  
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+### Code License
+This project's **source code** is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### Important Note
+The MIT License applies **only to the codebase and software architecture**. It does **NOT** grant rights to:
+- Third-party data sources (TMDB, Netflix datasets, etc.)
+- AI model API access (OpenAI, Anthropic)
+- Commercial use of integrated entertainment data
+- Trademark or copyrighted content
+
+**For complete usage terms and restrictions, please refer to the [Disclaimer](#️-disclaimer) section below.**
 
 ```
 MIT License
@@ -662,6 +693,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+
 
 ## 🌟 Acknowledgments
 
