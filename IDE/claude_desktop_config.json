@@ -3,7 +3,9 @@
     "netflix-business-intelligence": {
       "command": "uv",
       "args": [
-        "run", 
+        "run",
+        "mcp[cli]",
+        "mcp",
         "python", 
         "mcp_server/mcp_server.py"
       ],
