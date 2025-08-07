@@ -47,6 +47,11 @@ except ImportError as e:
     logger.info("💡 Please install: uv add mcp")
     MCP_CLIENT_AVAILABLE = False
 
+server_params = StdioServerParameters(
+    command="uv",
+    args=["run", "multi_agents.py"]
+)
+
 class NetflixMCPClient:
     """Netflix MCP Client with IDE compatibility"""
     
