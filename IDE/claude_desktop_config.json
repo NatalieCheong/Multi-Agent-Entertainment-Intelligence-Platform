@@ -7,33 +7,17 @@
         "mcp[cli]",
         "mcp",
         "python", 
-        "mcp_server/mcp_server.py"
+        "mcp_server.py"
       ],
       "cwd": "path/to/your/AI-Agents-with-MCP-Server-for-Netflix-TV-and-Movie-Shows",
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key_here",
-        "ANTHROPIC_API_KEY": "your_anthropic_api_key_here",
-        "NETFLIX_DATASET_PATH": "data/netflix_titles.csv"
-      }
     },
     "netflix-content-discovery": {
       "command": "uv",
       "args": [
         "run",
         "python",
-        "-c",
-        "from mcp_server.mcp_server import main; import asyncio; asyncio.run(main())"
       ],
       "cwd": "path/to/your/AI-Agents-with-MCP-Server-for-Netflix-TV-and-Movie-Shows",
-      "env": {
-        "OPENAI_API_KEY": "your_openai_api_key_here",
-        "MCP_SERVER_MODE": "content_discovery"
-      }
     }
   },
-  "globalShortcuts": {
-    "toggleMcp": "Cmd+Shift+M"
-  },
-  "theme": "dark",
-  "logLevel": "info"
 }
